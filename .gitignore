@@ -1,0 +1,79 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source because binaries don't diff well
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE specific #
+################
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Visual Studio Code
+.vscode/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# PyCharm
+*.py[cod]
+*.pyc
+__pycache__/
+*.pyo
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Virtual Environments
+######################
+venv/
+ENV/
+
+# Node.js
+######################
+node_modules/
+
+# Environment variables
+.env
+
+# Other #
+#########
+# Exclude specific files or directories
+# config.json
+# secrets/
+
