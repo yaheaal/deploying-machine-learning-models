@@ -54,3 +54,16 @@ class CustomScaler(BaseEstimator, TransformerMixin):
             X_scaled = self.scaler.transform(X)
             X = pd.DataFrame(X_scaled, columns=X.columns)
         return X
+    
+class FeatureSelector(BaseEstimator, TransformerMixin):
+    def __init__(self, columns=None):
+        self.columns = columns
+
+    def fit(self, X, y=None):
+        return self
+
+    def transform(self, X):
+        if not all(item in X.columns for item in self.columns):
+            missing_cols = list(set(self.columns) - set(X.columns))
+            raise ValueError(f"The following columns are missing in the DataFrame: {missing_cols}")
+        return X[self.columns]
