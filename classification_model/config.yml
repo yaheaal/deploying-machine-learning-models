@@ -1,0 +1,54 @@
+app:
+  train_data_file: "train.csv"
+  test_data_file: "test.csv"
+  package_name: "classification_model"
+  pipeline_name: "classification_model"
+  pipeline_save_file: "classification_model_output_v"
+
+model:
+  test_size: 0.2
+  random_state: 42
+  target: "SalePrice"
+  drop_variables:
+    - "PassengerId"
+    - "Name"
+    - "Cabin"
+    - "Ticket"
+  cat_na_with_mode:
+    - "Embarked"
+  num_na_with_median:
+    - "Age"
+  bins_fare:
+    - 0
+    - 7.9104
+    - 14.4542
+    - 31.0
+    - 512.3292
+  labels_fare:
+    - "Low"
+    - "Medium"
+    - "High"
+    - "Very High"
+  mapping_var:
+    - col: "Sex"
+      mapping:
+        male: 1
+        female: 0
+    - col: "Fare"
+      mapping:
+        Low: 0
+        Medium: 1
+        High: 2
+        Very High: 3
+  one_hot_var:
+    - "Embarked"
+  one_hot_drop:
+    - "Embarked_C"
+  selected_features:
+    - "Pclass"
+    - "Sex"
+    - "Age"
+    - "SibSp"
+    - "Parch"
+    - "Fare"
+    - "Embarked_S"
