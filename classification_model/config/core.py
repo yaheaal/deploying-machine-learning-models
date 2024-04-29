@@ -8,6 +8,8 @@ import classification_model
 
 PACKAGE_ROOT = Path(classification_model.__file__).resolve().parent
 CONFIG_FILE_PATH = PACKAGE_ROOT / "config.yml"
+DATASET_DIR = PACKAGE_ROOT / "datasets"
+TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_model"
 
 
 class AppConfig(BaseModel):
@@ -15,8 +17,8 @@ class AppConfig(BaseModel):
     Application-level config.
     """
 
-    train_data_file: str
-    test_data_file: str
+    data_file: str
+    selected_features: str
     package_name: str
     pipeline_name: str
     pipeline_save_file: str
@@ -36,9 +38,9 @@ class ModelConfig(BaseModel):
     test_size: float
     random_state: int
     target: str
-    drop_variables: List[str]
-    cat_na_with_mode: List[str]
-    num_na_with_median: List[str]
+    drop_variables: List[Union[str, int]]
+    cat_na_with_mode: int | str | list[str | int] | None
+    num_na_with_median: int | str | list[str | int] | None
     bins_fare: List[float]
     labels_fare: List[str]
     mapping_var: List[MappingItem]
