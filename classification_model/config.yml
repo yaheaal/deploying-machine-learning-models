@@ -1,6 +1,6 @@
 app:
-  train_data_file: "train.csv"
-  test_data_file: "test.csv"
+  data_file: "data.csv"
+  selected_features: "selected_features.csv"
   package_name: "classification_model"
   pipeline_name: "classification_model"
   pipeline_save_file: "classification_model_output_v"
@@ -8,7 +8,7 @@ app:
 model:
   test_size: 0.2
   random_state: 42
-  target: "SalePrice"
+  target: "Survived"
   drop_variables:
     - "PassengerId"
     - "Name"
