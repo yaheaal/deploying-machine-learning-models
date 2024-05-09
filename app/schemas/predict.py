@@ -28,7 +28,7 @@ class MultiplePassengerDataExample(BaseModel):
                         "Parch": 0,
                         "Ticket": "A/5 21171",
                         "Fare": 7.25,
-                        "Cabin": None,
+                        "Cabin": "C85",
                         "Embarked": "S",
                     }
                 ]
