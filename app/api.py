@@ -8,6 +8,7 @@ from loguru import logger
 
 from app import schemas
 from app.config import settings
+from app.schemas.predict import ClassificationResults, MultiplePassengerDataExample
 from app.version import __version__
 from classification_model import __version__ as m_version
 from classification_model.predict import make_prediction
@@ -27,10 +28,8 @@ def health() -> dict:
     return health.dict()
 
 
-@api_router.post(
-    "/predict", response_model=schemas.ClassificationResults, status_code=200
-)
-async def predict(input_data: schemas.MultiplePassengerDataInputs) -> Any:
+@api_router.post("/predict", response_model=ClassificationResults, status_code=200)
+async def predict(input_data: MultiplePassengerDataExample) -> Any:
     input_df = pd.DataFrame(jsonable_encoder(input_data.inputs))
 
     logger.info(f"Making prediction on inputs: {input_data.inputs}")

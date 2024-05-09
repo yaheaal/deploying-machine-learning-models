@@ -1,6 +1,6 @@
-from typing import Any, ClassVar, List, Optional
+from typing import Any, List, Optional
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel
 
 from classification_model.processing.validation import PassengerDataInputSchema
 
@@ -11,11 +11,11 @@ class ClassificationResults(BaseModel):
     prediction: Optional[List[float]]
 
 
-class MultiplePassengerDataInputs(BaseModel):
+class MultiplePassengerDataExample(BaseModel):
     inputs: List[PassengerDataInputSchema]
 
-    config: ClassVar[ConfigDict] = ConfigDict(
-        json_schema_extra={
+    class Config:
+        json_schema_extra = {
             "example": {
                 "inputs": [
                     {
@@ -34,4 +34,3 @@ class MultiplePassengerDataInputs(BaseModel):
                 ]
             }
         }
-    )
